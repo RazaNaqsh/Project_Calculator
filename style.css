@@ -33,8 +33,10 @@ body{
     display: flex;
     background-color: #6d6875;
     flex-direction: row-reverse;
+    justify-content: space-between;
     
 }
+
 .btnContainer{
     background-color: #457b9d;
     margin-top: 0;
@@ -43,10 +45,15 @@ body{
     gap: 1rem;
     flex-wrap: wrap;
 }
+.displayValue{
+    font-size: 2rem;
+    color: #feeafa;
+}
 .inputText{
     align-self: flex-end;
     font-size: 3.5rem;
 padding-right: .5rem;
+color: #a9def9;
 }
 .upperRowOperations{
     display: flex;
