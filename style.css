@@ -55,12 +55,8 @@ body{
 padding-right: .5rem;
 color: #a9def9;
 }
-.upperRowOperations{
-    display: flex;
-    gap: 1rem;
-    
-}
-.operations{
+
+.btn{
     width: calc(91%/4);
     height:7rem;
     text-align: center;
