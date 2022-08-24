@@ -26,3 +26,15 @@ const product = function(...number) {
     }
     return product;
   }
+  
+  const difference = function(...number) {
+    let num = number;
+    let difference = number[0];
+    console.log(difference);
+    for(let i=1;i<number.length;i++)
+      {
+        difference = difference - number[i];
+      }
+    return difference;
+  }
+  
