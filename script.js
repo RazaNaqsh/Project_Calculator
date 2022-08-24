@@ -187,8 +187,19 @@ equalBtn.addEventListener('click',function(){
         //will have to change num variables here
     }
     else if(operatorChosen == '-'){
-        input.textContent = difference(num1,num2);
+        numOpsOne= difference(num1,num2);
+        numOpsTwo = '';
+        input.textContent= numOpsOne;
     }
+    else if(operatorChosen == '*'){
+        numOpsOne= product(num1,num2);
+        numOpsTwo = '';
+        input.textContent= numOpsOne;
+    }
+    else if(operatorChosen == '/')
+    numOpsOne= division(num1,num2);
+    numOpsTwo = '';
+    input.textContent= numOpsOne;
 });
 
 addBtn.addEventListener('click',function(){
@@ -212,8 +223,24 @@ subBtn.addEventListener('click',function(){
         console.log(operatorChosen);
 });
 multiplyBtn.addEventListener('click',function(){
-
+    if(operatorChosen.length==0)
+    operatorChosen = '*';
+    else{
+        operatorChosen = '';
+        operatorChosen ='*';
+    }
+        console.log(numOpsOne);
+        console.log(numOpsTwo);
+        console.log(operatorChosen);
 });
 divBtn.addEventListener('click',function(){
-    
+    if(operatorChosen.length==0)
+    operatorChosen = '/';
+    else{
+        operatorChosen = '';
+        operatorChosen ='/';
+    }
+        console.log(numOpsOne);
+        console.log(numOpsTwo);
+        console.log(operatorChosen);
 });
