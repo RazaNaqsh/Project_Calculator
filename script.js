@@ -48,7 +48,7 @@ const product = function(...number) {
   }
 
 const operator = function(){
-    let opt = prompt("Enter operator to perform calculation on numbers");
+    let opt = prompt("Enter operator to perform calculation on numbers(Only +,-,*,/)");
     let num = [];
     let times = parseInt(prompt("How many numbers you want to operate on?"));
     for(let i=0; i<times;i++){
@@ -56,7 +56,20 @@ const operator = function(){
     }
     console.log(num);
     if(opt=="+"){
-        return add(num);
+        return add(...num);
+    }
+    else if(opt == "-"){
+        return difference(...num);
+    }
+    else if(opt == '*'){
+        return product(...num);
+    }
+    else if(opt == '/'){
+        return division(...num);
+    }
+    else {
+        alert("Wrong input!");
+        operator();
     }
 }
   operator();
