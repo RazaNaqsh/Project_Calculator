@@ -26,7 +26,7 @@ const product = function(...number) {
     }
     return product;
   }
-  
+
   const difference = function(...number) {
     let num = number;
     let difference = number[0];
@@ -37,4 +37,16 @@ const product = function(...number) {
       }
     return difference;
   }
+  const divide = function(...number) {
+    let num = number;
+    let divide = number[0];
+    
+    for(let i=1;i<number.length;i++)
+      {
+        divide /= number[i];
+      }
+    return divide;
+  }
+  
+
   
