@@ -79,5 +79,7 @@ const operator = function(){
 //   console.log(btn);
   btn.addEventListener("click",operator);
   // for the part ahead ive a rough idea, that assign numbers to their respective button then 
-//   as you click on operators
+//   those number get stores in the array which then gets displayed on the screen and then when
+// 
+// lets try on single numbers first
   
