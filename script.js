@@ -1,5 +1,4 @@
 //functions for operators
-
 const add = function(...number) {
     let sum = 0;
     for (let i of number)
@@ -24,12 +23,9 @@ const product = function(...number) {
      divide /= number[i];
      return divide;
   }
-const operator = function(){
-    let opt = prompt("Enter operator to perform calculation on numbers(Only +,-,*,/)");
-    let num = [];
-    let times = parseInt(prompt("How many numbers you want to operate on?"));
-    for(let i=0; i<times;i++)   
-        num[i]=parseInt(prompt('enter num '+(i+1)));
+const operate = function(){
+    // let opt = prompt("Enter operator to perform calculation on numbers(Only +,-,*,/)");
+ 
     if(opt=="+")   
      return console.log(add(...num));
     else if(opt == "-")
@@ -40,11 +36,9 @@ const operator = function(){
         return console.log(division(...num));
     else {
         alert("Wrong input!");
-        operator();
+        operate();
     }
 }
-  const btn = document.querySelector('.btnPlay');
-  btn.addEventListener("click",operator);
 // selectors numbers
 const numOne = document.getElementById("one");
 const numTwo = document.getElementById("two");
@@ -70,130 +64,77 @@ const input = document.querySelector('.inputText');
 const displayOps = document.querySelector('.displayValue');
 
 //global variables
-let numOps = [];
-let valueOps = [];
+let numOps = '';
+let valueOps = '';
+
+//display text update
+function updateText(){
+    input.textContent=numOps;
+    console.log(numOps);
+}
 
 //number btn events
-numOne.addEventListener('click', one);
-numTwo.addEventListener('click', two);
-numThree.addEventListener('click', three);
-numFour.addEventListener('click', four);
-numFive.addEventListener('click', five);
-numSix.addEventListener('click', six);
-numSeven.addEventListener('click', seven);
-numEight.addEventListener('click', eight);
-numNine.addEventListener('click', nine);
-numZero.addEventListener('click', zero);
+numOne.addEventListener('click', function(){
+numOps += 1;
+updateText();
+});
+
+numTwo.addEventListener('click', function(){
+numOps +=2;
+updateText();
+});
+
+numThree.addEventListener('click', function(){
+numOps +=3;
+updateText();
+});
+
+numFour.addEventListener('click', function(){
+numOps +=4;
+updateText();
+});
+
+numFive.addEventListener('click', 
+function(){
+    numOps +=5;
+    updateText();
+});
+numSix.addEventListener('click', function(){
+    numOps +=6;
+    updateText();
+});
+numSeven.addEventListener('click', function(){
+    numOps +=7;
+    updateText();
+});
+numEight.addEventListener('click', function(){
+    numOps +=8;
+    updateText();
+});
+numNine.addEventListener('click', function(){
+    numOps +=9;
+    updateText();
+});
+numZero.addEventListener('click', function(){
+    numOps +=0;
+    updateText();
+});
 
 //operation btn events
-clearBtn.addEventListener('click',clear);
-equalBtn.addEventListener('click',equal);
-addBtn.addEventListener('click',addOps);
-subBtn.addEventListener('click',subOps);
-multiplyBtn.addEventListener('click',multiplyOps);
-divBtn.addEventListener('click',divOps);
-
-//operation btns functions
-function clear(){
+clearBtn.addEventListener('click',function(){
     numOps=[];
-    input.textContent=numOps;
-    displayOps.textContent=numOps;
-    c=console.log(numOps);
-}
-//btn operations functions
-function one(){
-    numOps.push(1);
-    numOps=numOps.join('');
-    numOps=[parseInt(numOps)];
-    input.textContent=numOps;
-    console.log(numOps);
-}
-function two(){
-    numOps.push(2);
-    numOps=numOps.join('');
-    numOps=[parseInt(numOps)];
-    input.textContent=numOps;
-    console.log(numOps);
-}
-function three(){
-    numOps.push(3);
-    numOps=numOps.join('');
-    numOps=[parseInt(numOps)];
-    input.textContent=numOps;
-    console.log(numOps);
-}
-function four(){
-    numOps.push(4);
-    numOps=numOps.join('');
-    numOps=[parseInt(numOps)];
-    input.textContent=numOps;
-    console.log(numOps);
-}
-function five(){
-    numOps.push(5);
-    numOps=numOps.join('');
-    numOps=[parseInt(numOps)];
-    input.textContent=numOps;
-    console.log(numOps);
-}
-function six(){
-    numOps.push(6);
-    numOps=numOps.join('');
-    numOps=[parseInt(numOps)];
-    input.textContent=numOps;
-    console.log(numOps);
-}
-function seven(){
-    numOps.push(7);
-    numOps=numOps.join('');
-    numOps=[parseInt(numOps)];
-    input.textContent=numOps;
-    console.log(numOps);
-}
-function eight(){
-    numOps.push(8);
-    numOps=numOps.join('');
-    numOps=[parseInt(numOps)];
-    input.textContent=numOps;
-    console.log(numOps);
-}
-function nine(){
-    numOps.push(9);
-    numOps=numOps.join('');
-    numOps=[parseInt(numOps)];
-    input.textContent=numOps;
-    console.log(numOps);
-}
-function zero(){
-    numOps.push(0);
-    numOps=numOps.join('');
-    numOps=[parseInt(numOps)];
-    input.textContent=numOps;
-    console.log(numOps);
-}
-//function for operations
-function addOps(){
-    numOps.push("+");
-    valueOps = numOps;
-    displayOps.textContent=valueOps;
-    console.log(numOps);
-}
-function subOps(){
-    numOps.push("-");
-    valueOps = numOps;
-    displayOps.textContent=valueOps;
-    console.log(numOps);
-}
-function multiplyOps(){
-    numOps.push("*");
-    valueOps = numOps;
-    displayOps.textContent=valueOps;
-    console.log(numOps);
-}
-function divOps(){
-    numOps.push("/");
-    valueOps = numOps;
-    displayOps.textContent=valueOps;
-    console.log(numOps);
-}
+    input.textContent=0;
+});
+equalBtn.addEventListener('click',equal);
+addBtn.addEventListener('click',function(){
 
+});
+subBtn.addEventListener('click',function(){
+
+});
+multiplyBtn.addEventListener('click',function(){
+
+});
+divBtn.addEventListener('click',function(){
+    
+});
