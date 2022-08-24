@@ -105,14 +105,17 @@ const addBtn = document.getElementById("add");
 const subBtn=document.getElementById("subtract");
 const multiplyBtn =document.getElementById("multiply");
 const divBtn = document.getElementById("divide");
-const equal = document.getElementById("equal");
-const clear = document.getElementById("clear");
+const equalBtn = document.getElementById("equal");
+const clearBtn = document.getElementById("clear");
 
+//selectors dom elements
+const input = document.querySelector('.inputText');
+const displayOps = document.querySelector('.displayValue');
 
 //global variables
 let numOps = [];
 
-//btn events
+//number btn events
 numOne.addEventListener('click', one);
 numTwo.addEventListener('click', two);
 numThree.addEventListener('click', three);
@@ -124,8 +127,24 @@ numEight.addEventListener('click', eight);
 numNine.addEventListener('click', nine);
 numZero.addEventListener('click', zero);
 
-//btn operations
+//operation btn events
+clearBtn.addEventListener('click',clear);
+equalBtn.addEventListener('click',equal);
+
+
+
+//operation btns functions
+function clear(){
+    numOps=[];
+    input.textContent=numOps;
+    c=console.log(numOps);
+}
+
+//btn operations functions
 function one(){
     numOps.push(1);
+    numOps=numOps.join('');
+    numOps=[parseInt(numOps)];
+    input.textContent=numOps;
     console.log(numOps);
 }
