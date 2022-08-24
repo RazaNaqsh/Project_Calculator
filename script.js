@@ -1,72 +1,50 @@
 //functions for operators
 
 const add = function(...number) {
-    let num = number;
     let sum = 0;
-    for (let i of num) {
+    for (let i of number)
       sum += i;
-    }
     return sum;
   }
-
 const product = function(...number) {
-    let num = number;
     let product = 1;
-    for (let i of num) {
-      product*= i;
-    }
+    for (let i of number)
+    product*= i;
     return product;
   }
-
   const difference = function(...number) {
-    let num = number;
     let difference = number[0];
-    for(let i=1;i<num.length;i++)
-      {
-        difference -= num[i];
-      }
+    for(let i=1;i<number.length;i++)
+    difference -= number[i];
     return difference;
   }
   const division = function(...number) {
-    let num = number;
     let divide = number[0];
-    
-    for(let i=1;i<num.length;i++)
-      {
-        divide /= num[i];
-      }
-    return divide;
+    for(let i=1;i<number.length;i++)
+     divide /= number[i];
+     return divide;
   }
-
 const operator = function(){
     let opt = prompt("Enter operator to perform calculation on numbers(Only +,-,*,/)");
     let num = [];
     let times = parseInt(prompt("How many numbers you want to operate on?"));
-    for(let i=0; i<times;i++){
+    for(let i=0; i<times;i++)   
         num[i]=parseInt(prompt('enter num '+(i+1)));
-    }
-    // console.log(num);
-    if(opt=="+"){
-        return console.log(add(...num));
-    }
-    else if(opt == "-"){
+    if(opt=="+")   
+     return console.log(add(...num));
+    else if(opt == "-")
         return console.log(difference(...num));
-    }
-    else if(opt == '*'){
+    else if(opt == '*')
         return console.log(product(...num));
-    }
-    else if(opt == '/'){
+    else if(opt == '/')
         return console.log(division(...num));
-    }
     else {
         alert("Wrong input!");
         operator();
     }
 }
-
   const btn = document.querySelector('.btnPlay');
   btn.addEventListener("click",operator);
-
 // selectors numbers
 const numOne = document.getElementById("one");
 const numTwo = document.getElementById("two");
