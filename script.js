@@ -176,13 +176,21 @@ clearBtn.addEventListener('click',function(){
     operatorChosen='';
     input.textContent=0;
 });
+
 equalBtn.addEventListener('click',function(){
+    let num1 = parseInt(numOpsOne);
+    let num2 = parseInt(numOpsTwo);
     if(operatorChosen == '+'){
-        let num1 = parseInt(numOpsOne);
-        let num2 = parseInt(numOpsTwo);
-        input.textContent = add(num1,num2);
+        numOpsOne= add(num1,num2);
+        numOpsTwo = '';
+        input.textContent= numOpsOne;
+        //will have to change num variables here
+    }
+    else if(operatorChosen == '-'){
+        input.textContent = difference(num1,num2);
     }
 });
+
 addBtn.addEventListener('click',function(){
     if(operatorChosen.length==0)
 operatorChosen = '+';
@@ -190,10 +198,18 @@ else{
     operatorChosen = '';
     operatorChosen ='+';
 }
+    console.log(numOpsOne);
+    console.log(numOpsTwo);
     console.log(operatorChosen);
 });
 subBtn.addEventListener('click',function(){
-
+    if(operatorChosen.length==0)
+    operatorChosen = '-';
+    else{
+        operatorChosen = '';
+        operatorChosen ='-';
+    }
+        console.log(operatorChosen);
 });
 multiplyBtn.addEventListener('click',function(){
 
