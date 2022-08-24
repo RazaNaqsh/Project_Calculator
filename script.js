@@ -54,24 +54,30 @@ const operator = function(){
     for(let i=0; i<times;i++){
         num[i]=parseInt(prompt('enter num '+(i+1)));
     }
-    console.log(num);
+    // console.log(num);
     if(opt=="+"){
-        return add(...num);
+        return console.log(add(...num));
     }
     else if(opt == "-"){
-        return difference(...num);
+        return console.log(difference(...num));
     }
     else if(opt == '*'){
-        return product(...num);
+        return console.log(product(...num));
     }
     else if(opt == '/'){
-        return division(...num);
+        return console.log(division(...num));
     }
     else {
         alert("Wrong input!");
         operator();
     }
 }
-  operator();
 
+//   operator();
+
+  const btn = document.querySelector('.btnPlay');
+//   console.log(btn);
+  btn.addEventListener("click",operator);
+  // for the part ahead ive a rough idea, that assign numbers to their respective button then 
+//   as you click on operators
   
