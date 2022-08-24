@@ -24,21 +24,33 @@ const product = function(...number) {
      return divide;
   }
 const operate = function(){
-    // let opt = prompt("Enter operator to perform calculation on numbers(Only +,-,*,/)");
- 
-    if(opt=="+")   
-     return console.log(add(...num));
-    else if(opt == "-")
-        return console.log(difference(...num));
-    else if(opt == '*')
-        return console.log(product(...num));
-    else if(opt == '/')
-        return console.log(division(...num));
-    else {
-        alert("Wrong input!");
-        operate();
+      let num1 = parseInt(numOpsOne);
+    let num2 = parseInt(numOpsTwo);
+    if(numOpsTwo == ''){
+        equalBtn.disable = true;
+    }
+    else if(operatorChosen == '+'){
+        numOpsOne= add(num1,num2);
+        numOpsTwo = '';
+        input.textContent= numOpsOne;
+    }
+    else if(operatorChosen == '-'){
+        numOpsOne= difference(num1,num2);
+        numOpsTwo = '';
+        input.textContent= numOpsOne;
+    }
+    else if(operatorChosen == '*'){
+        numOpsOne= product(num1,num2);
+        numOpsTwo = '';
+        input.textContent= numOpsOne;
+    }
+    else if(operatorChosen == '/'){
+        numOpsOne= division(num1,num2);
+        numOpsTwo = '';
+        input.textContent= numOpsOne;
     }
 }
+
 // selectors numbers
 const numOne = document.getElementById("one");
 const numTwo = document.getElementById("two");
@@ -66,15 +78,20 @@ const displayOps = document.querySelector('.displayValue');
 //global variables
 let numOpsOne = '';
 let numOpsTwo ='';
-let valueOps = '';
 let operatorChosen = '';
+let valueOps = numOpsOne+operatorChosen+numOpsTwo;
 
 //display text update
 function updateText(){
-    if(operatorChosen.length == 0)
-    input.textContent=numOpsOne;
-    else
-    input.textContent=numOpsTwo;
+    if(operatorChosen.length == 0){
+     input.textContent=numOpsOne;
+     valueOps.textContent = valueOps+numOpsOne;
+    }
+    
+    else{
+        input.textContent=numOpsTwo;
+        valueOps.textContent = valueOps+numOpsTwo;
+    }
     displayOps.textContent=valueOps;
     console.log("numOne: "+numOpsOne);
     console.log("numTwo: "+numOpsTwo);
@@ -175,32 +192,10 @@ clearBtn.addEventListener('click',function(){
     valueOps='';
     operatorChosen='';
     input.textContent=0;
+    displayOps.textContent=0;
 });
 
-equalBtn.addEventListener('click',function(){
-    let num1 = parseInt(numOpsOne);
-    let num2 = parseInt(numOpsTwo);
-    if(operatorChosen == '+'){
-        numOpsOne= add(num1,num2);
-        numOpsTwo = '';
-        input.textContent= numOpsOne;
-        //will have to change num variables here
-    }
-    else if(operatorChosen == '-'){
-        numOpsOne= difference(num1,num2);
-        numOpsTwo = '';
-        input.textContent= numOpsOne;
-    }
-    else if(operatorChosen == '*'){
-        numOpsOne= product(num1,num2);
-        numOpsTwo = '';
-        input.textContent= numOpsOne;
-    }
-    else if(operatorChosen == '/')
-    numOpsOne= division(num1,num2);
-    numOpsTwo = '';
-    input.textContent= numOpsOne;
-});
+equalBtn.addEventListener('click',operate);
 
 addBtn.addEventListener('click',function(){
     if(operatorChosen.length==0)
