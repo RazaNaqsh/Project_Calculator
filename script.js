@@ -83,3 +83,24 @@ const operator = function(){
 // 
 // lets try on single numbers first
   
+//following odin's step
+
+// selectors numbers
+const one = document.getElementById("one");
+const two = document.getElementById("two");
+const three = document.getElementById("three");
+const four = document.getElementById("four");
+const five = document.getElementById("one");
+const six = document.getElementById("one");
+const seven = document.getElementById("seven");
+const eight = document.getElementById("eight");
+const nine = document.getElementById("nine");
+const zero = document.getElementById("zero");
+
+//selectors operators
+const addBtn = document.getElementById("add");
+const subBtn=document.getElementById("subtract");
+const multiplyBtn =document.getElementById("multiply");
+const divBtn = document.getElementById("divide");
+const equal = document.getElementById("equal");
+const clear = document.getElementById("clear");
