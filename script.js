@@ -1,15 +1,3 @@
-//gonna add life to the calc here
-
-// pseudocode
-// 1-create individual functions for add sub multiply and div test them in console
-// 2- Create a function that takes in an operator and 2 number then call one of above function on numbers.. use  console first to check
-// 3- Add a clear button
-// 4- a function that show on display when click number button. store the display value in a variable to use for next step
-// store the first number user click then save which operation is selected then operate on them when user clicks = key.
-
-// lets create individual function
-
-
 //functions for operators
 
 const add = function(...number) {
@@ -76,17 +64,8 @@ const operator = function(){
     }
 }
 
-//   operator();
-
   const btn = document.querySelector('.btnPlay');
-//   console.log(btn);
   btn.addEventListener("click",operator);
-  // for the part ahead ive a rough idea, that assign numbers to their respective button then 
-//   those number get stores in the array which then gets displayed on the screen and then when
-// 
-// lets try on single numbers first
-  
-//following odin's step
 
 // selectors numbers
 const numOne = document.getElementById("one");
@@ -114,6 +93,7 @@ const displayOps = document.querySelector('.displayValue');
 
 //global variables
 let numOps = [];
+let valueOps = [];
 
 //number btn events
 numOne.addEventListener('click', one);
@@ -130,6 +110,10 @@ numZero.addEventListener('click', zero);
 //operation btn events
 clearBtn.addEventListener('click',clear);
 equalBtn.addEventListener('click',equal);
+addBtn.addEventListener('click',addOps);
+subBtn.addEventListener('click',subOps);
+multiplyBtn.addEventListener('click',multiplyOps);
+divBtn.addEventListener('click',divOps);
 
 
 
@@ -137,6 +121,7 @@ equalBtn.addEventListener('click',equal);
 function clear(){
     numOps=[];
     input.textContent=numOps;
+    displayOps.textContent=numOps;
     c=console.log(numOps);
 }
 
@@ -146,5 +131,131 @@ function one(){
     numOps=numOps.join('');
     numOps=[parseInt(numOps)];
     input.textContent=numOps;
+    if(numOps > 9999999999 ){
+        limit();
+    }
     console.log(numOps);
 }
+function two(){
+    numOps.push(2);
+    numOps=numOps.join('');
+    numOps=[parseInt(numOps)];
+    input.textContent=numOps;
+    if(numOps > 9999999999 ){
+        limit();
+    }
+    console.log(numOps);
+}
+function three(){
+    numOps.push(3);
+    numOps=numOps.join('');
+    numOps=[parseInt(numOps)];
+    input.textContent=numOps;
+    if(numOps > 9999999999 ){
+        limit();
+    }
+    console.log(numOps);
+}
+function four(){
+    numOps.push(4);
+    numOps=numOps.join('');
+    numOps=[parseInt(numOps)];
+    input.textContent=numOps;
+    if(numOps > 9999999999 ){
+        limit();
+    }
+    console.log(numOps);
+}
+function five(){
+    numOps.push(5);
+    numOps=numOps.join('');
+    numOps=[parseInt(numOps)];
+    input.textContent=numOps;
+    if(numOps > 9999999999 ){
+        limit();
+    }
+    console.log(numOps);
+}
+function six(){
+    numOps.push(6);
+    numOps=numOps.join('');
+    numOps=[parseInt(numOps)];
+    input.textContent=numOps;
+    if(numOps > 9999999999 ){
+        limit();
+    }
+    
+    console.log(numOps);
+}
+function seven(){
+    numOps.push(7);
+    numOps=numOps.join('');
+    numOps=[parseInt(numOps)];
+    input.textContent=numOps;
+    if(numOps > 9999999999 ){
+        limit();
+    }
+    console.log(numOps);
+}
+function eight(){
+    numOps.push(8);
+    numOps=numOps.join('');
+    numOps=[parseInt(numOps)];
+    input.textContent=numOps;
+    if(numOps > 9999999999 ){
+        limit();
+    }
+    console.log(numOps);
+}
+function nine(){
+    numOps.push(9);
+    numOps=numOps.join('');
+    numOps=[parseInt(numOps)];
+    input.textContent=numOps;
+    if(numOps > 9999999999 ){
+        limit();
+    }
+    console.log(numOps);
+}
+function zero(){
+    numOps.push(0);
+    numOps=numOps.join('');
+    numOps=[parseInt(numOps)];
+    input.textContent=numOps;
+    if(numOps > 9999999999 ){
+        limit();
+    }
+    console.log(numOps);
+}
+
+function limit(){
+    alert("Dont type such large numbers!")
+    clear();
+}
+
+//function for operations
+function addOps(){
+    numOps.push("+");
+    valueOps = numOps;
+    displayOps.textContent=valueOps;
+    console.log(numOps);
+}
+function subOps(){
+    numOps.push("-");
+    valueOps = numOps;
+    displayOps.textContent=valueOps;
+    console.log(numOps);
+}
+function multiplyOps(){
+    numOps.push("*");
+    valueOps = numOps;
+    displayOps.textContent=valueOps;
+    console.log(numOps);
+}
+function divOps(){
+    numOps.push("/");
+    valueOps = numOps;
+    displayOps.textContent=valueOps;
+    console.log(numOps);
+}
+
