@@ -93,8 +93,6 @@ subBtn.addEventListener('click',subOps);
 multiplyBtn.addEventListener('click',multiplyOps);
 divBtn.addEventListener('click',divOps);
 
-
-
 //operation btns functions
 function clear(){
     numOps=[];
@@ -102,16 +100,12 @@ function clear(){
     displayOps.textContent=numOps;
     c=console.log(numOps);
 }
-
 //btn operations functions
 function one(){
     numOps.push(1);
     numOps=numOps.join('');
     numOps=[parseInt(numOps)];
     input.textContent=numOps;
-    if(numOps > 9999999999 ){
-        limit();
-    }
     console.log(numOps);
 }
 function two(){
@@ -119,9 +113,6 @@ function two(){
     numOps=numOps.join('');
     numOps=[parseInt(numOps)];
     input.textContent=numOps;
-    if(numOps > 9999999999 ){
-        limit();
-    }
     console.log(numOps);
 }
 function three(){
@@ -129,9 +120,6 @@ function three(){
     numOps=numOps.join('');
     numOps=[parseInt(numOps)];
     input.textContent=numOps;
-    if(numOps > 9999999999 ){
-        limit();
-    }
     console.log(numOps);
 }
 function four(){
@@ -139,9 +127,6 @@ function four(){
     numOps=numOps.join('');
     numOps=[parseInt(numOps)];
     input.textContent=numOps;
-    if(numOps > 9999999999 ){
-        limit();
-    }
     console.log(numOps);
 }
 function five(){
@@ -149,9 +134,6 @@ function five(){
     numOps=numOps.join('');
     numOps=[parseInt(numOps)];
     input.textContent=numOps;
-    if(numOps > 9999999999 ){
-        limit();
-    }
     console.log(numOps);
 }
 function six(){
@@ -159,10 +141,6 @@ function six(){
     numOps=numOps.join('');
     numOps=[parseInt(numOps)];
     input.textContent=numOps;
-    if(numOps > 9999999999 ){
-        limit();
-    }
-    
     console.log(numOps);
 }
 function seven(){
@@ -170,9 +148,6 @@ function seven(){
     numOps=numOps.join('');
     numOps=[parseInt(numOps)];
     input.textContent=numOps;
-    if(numOps > 9999999999 ){
-        limit();
-    }
     console.log(numOps);
 }
 function eight(){
@@ -180,9 +155,6 @@ function eight(){
     numOps=numOps.join('');
     numOps=[parseInt(numOps)];
     input.textContent=numOps;
-    if(numOps > 9999999999 ){
-        limit();
-    }
     console.log(numOps);
 }
 function nine(){
@@ -190,9 +162,6 @@ function nine(){
     numOps=numOps.join('');
     numOps=[parseInt(numOps)];
     input.textContent=numOps;
-    if(numOps > 9999999999 ){
-        limit();
-    }
     console.log(numOps);
 }
 function zero(){
@@ -200,17 +169,8 @@ function zero(){
     numOps=numOps.join('');
     numOps=[parseInt(numOps)];
     input.textContent=numOps;
-    if(numOps > 9999999999 ){
-        limit();
-    }
     console.log(numOps);
 }
-
-function limit(){
-    alert("Dont type such large numbers!")
-    clear();
-}
-
 //function for operations
 function addOps(){
     numOps.push("+");
