@@ -30,23 +30,35 @@ const product = function(...number) {
   const difference = function(...number) {
     let num = number;
     let difference = number[0];
-    console.log(difference);
-    for(let i=1;i<number.length;i++)
+    for(let i=1;i<num.length;i++)
       {
-        difference = difference - number[i];
+        difference -= num[i];
       }
     return difference;
   }
-  const divide = function(...number) {
+  const division = function(...number) {
     let num = number;
     let divide = number[0];
     
-    for(let i=1;i<number.length;i++)
+    for(let i=1;i<num.length;i++)
       {
-        divide /= number[i];
+        divide /= num[i];
       }
     return divide;
   }
-  
+
+const operator = function(){
+    let opt = prompt("Enter operator to perform calculation on numbers");
+    let num = [];
+    let times = parseInt(prompt("How many numbers you want to operate on?"));
+    for(let i=0; i<times;i++){
+        num[i]=parseInt(prompt('enter num '+(i+1)));
+    }
+    console.log(num);
+    if(opt=="+"){
+        return add(num);
+    }
+}
+  operator();
 
   
