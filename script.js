@@ -64,70 +64,133 @@ const input = document.querySelector('.inputText');
 const displayOps = document.querySelector('.displayValue');
 
 //global variables
-let numOps = '';
+let numOpsOne = '';
+let numOpsTwo ='';
 let valueOps = '';
+let operatorChosen = '';
 
 //display text update
 function updateText(){
-    input.textContent=numOps;
-    console.log(numOps);
+    if(operatorChosen.length == 0)
+    input.textContent=numOpsOne;
+    else
+    input.textContent=numOpsTwo;
+    displayOps.textContent=valueOps;
+    console.log("numOne: "+numOpsOne);
+    console.log("numTwo: "+numOpsTwo);
+    console.log("operatorChosen: "+ operatorChosen);
 }
 
 //number btn events
 numOne.addEventListener('click', function(){
-numOps += 1;
+    if(operatorChosen.length == 0)
+numOpsOne += 1;
+else{
+    numOpsTwo +=1;
+}
 updateText();
 });
 
 numTwo.addEventListener('click', function(){
-numOps +=2;
+    if(operatorChosen.length == 0)
+numOpsOne +=2;
+else{
+    numOpsTwo +=2;
+}
 updateText();
 });
 
 numThree.addEventListener('click', function(){
-numOps +=3;
+    if(operatorChosen.length == 0)
+    numOpsOne +=3;
+    else{
+        numOpsTwo +=3;
+    }
 updateText();
 });
 
 numFour.addEventListener('click', function(){
-numOps +=4;
+    if(operatorChosen.length == 0)
+    numOpsOne +=4;
+    else{
+        numOpsTwo +=4;
+    }
 updateText();
 });
 
 numFive.addEventListener('click', 
 function(){
-    numOps +=5;
+    if(operatorChosen.length == 0)
+    numOpsOne +=5;
+    else{
+        numOpsTwo +=5;
+    }
     updateText();
 });
 numSix.addEventListener('click', function(){
-    numOps +=6;
+    if(operatorChosen.length == 0)
+    numOpsOne +=6;
+    else{
+        numOpsTwo +=6;
+    }
     updateText();
 });
 numSeven.addEventListener('click', function(){
-    numOps +=7;
+    if(operatorChosen.length == 0)
+    numOpsOne +=7;
+    else{
+        numOpsTwo +=7;
+    }
     updateText();
 });
 numEight.addEventListener('click', function(){
-    numOps +=8;
+    if(operatorChosen.length == 0)
+    numOpsOne +=8;
+    else{
+        numOpsTwo +=8;
+    }
     updateText();
 });
 numNine.addEventListener('click', function(){
-    numOps +=9;
+    if(operatorChosen.length == 0)
+    numOpsOne +=9;
+    else{
+        numOpsTwo +=9;
+    }
     updateText();
 });
 numZero.addEventListener('click', function(){
-    numOps +=0;
+    if(operatorChosen.length == 0)
+    numOpsOne +=0;
+    else{
+        numOpsTwo +=0;
+    }
     updateText();
 });
 
 //operation btn events
 clearBtn.addEventListener('click',function(){
-    numOps=[];
+    numOpsOne='';
+    numOpsTwo='';
+    valueOps='';
+    operatorChosen='';
     input.textContent=0;
 });
-equalBtn.addEventListener('click',equal);
+equalBtn.addEventListener('click',function(){
+    if(operatorChosen == '+'){
+        let num1 = parseInt(numOpsOne);
+        let num2 = parseInt(numOpsTwo);
+        input.textContent = add(num1,num2);
+    }
+});
 addBtn.addEventListener('click',function(){
-
+    if(operatorChosen.length==0)
+operatorChosen = '+';
+else{
+    operatorChosen = '';
+    operatorChosen ='+';
+}
+    console.log(operatorChosen);
 });
 subBtn.addEventListener('click',function(){
 
