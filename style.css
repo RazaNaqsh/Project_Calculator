@@ -1,0 +1,29 @@
+*{
+    margin:0;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    background-color: aquamarine;
+    height: 100vh;
+    
+}
+
+#calculatorBox{
+    height: 50rem;
+    width: 40rem;
+    border: 1px;
+    background-color: #1d3557;
+    margin: 15rem auto;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+#screen{
+    width: 90%;
+    height: 10rem;
+    margin: 2rem auto;
+    background-color: #457b9d;
+    border-radius: 1rem;
+}
