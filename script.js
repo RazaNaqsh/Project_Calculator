@@ -9,6 +9,9 @@
 
 // lets create individual function
 
+
+//functions for operators
+
 const add = function(...number) {
     let num = number;
     let sum = 0;
@@ -86,16 +89,16 @@ const operator = function(){
 //following odin's step
 
 // selectors numbers
-const one = document.getElementById("one");
-const two = document.getElementById("two");
-const three = document.getElementById("three");
-const four = document.getElementById("four");
-const five = document.getElementById("one");
-const six = document.getElementById("one");
-const seven = document.getElementById("seven");
-const eight = document.getElementById("eight");
-const nine = document.getElementById("nine");
-const zero = document.getElementById("zero");
+const numOne = document.getElementById("one");
+const numTwo = document.getElementById("two");
+const numThree = document.getElementById("three");
+const numFour = document.getElementById("four");
+const numFive = document.getElementById("five");
+const numSix = document.getElementById("six");
+const numSeven = document.getElementById("seven");
+const numEight = document.getElementById("eight");
+const numNine = document.getElementById("nine");
+const numZero = document.getElementById("zero");
 
 //selectors operators
 const addBtn = document.getElementById("add");
@@ -104,3 +107,25 @@ const multiplyBtn =document.getElementById("multiply");
 const divBtn = document.getElementById("divide");
 const equal = document.getElementById("equal");
 const clear = document.getElementById("clear");
+
+
+//global variables
+let numOps = [];
+
+//btn events
+numOne.addEventListener('click', one);
+numTwo.addEventListener('click', two);
+numThree.addEventListener('click', three);
+numFour.addEventListener('click', four);
+numFive.addEventListener('click', five);
+numSix.addEventListener('click', six);
+numSeven.addEventListener('click', seven);
+numEight.addEventListener('click', eight);
+numNine.addEventListener('click', nine);
+numZero.addEventListener('click', zero);
+
+//btn operations
+function one(){
+    numOps.push(1);
+    console.log(numOps);
+}
