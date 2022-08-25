@@ -42,21 +42,25 @@ const operate = function(){
         numOpsOne= add(num1,num2);
         numOpsTwo = '';
         input.textContent= numOpsOne;
+        displayOps.textContent=numOpsOne;
     }
     else if(operatorChosen == '-'){
         numOpsOne= difference(num1,num2);
         numOpsTwo = '';
         input.textContent= numOpsOne;
+        displayOps.textContent=numOpsOne;
     }
     else if(operatorChosen == '*'){
         numOpsOne= product(num1,num2);
         numOpsTwo = '';
         input.textContent= numOpsOne;
+        displayOps.textContent=numOpsOne;
     }
     else if(operatorChosen == '/'){
         numOpsOne= division(num1,num2);
         numOpsTwo = '';
         input.textContent= numOpsOne;
+        displayOps.textContent=numOpsOne;
     }
 }
 
@@ -91,9 +95,11 @@ const displayOps = document.querySelector('.displayValue');
 function updateText(){
     if(operatorChosen.length == 0){
      input.textContent=numOpsOne;
+
     }
     
     else{
+        displayOps.textContent=numOpsOne+operatorChosen+numOpsTwo;
         input.textContent=numOpsTwo;
     }
     console.log("numOne: "+numOpsOne);
@@ -198,27 +204,39 @@ clearBtn.addEventListener('click',function(){
     displayOps.textContent=0;
 });
 
+//equal button
 equalBtn.addEventListener('click',operate);
+
+
+
+//basic operation btns
 
 addBtn.addEventListener('click',function(){
     if(operatorChosen.length==0)
-operatorChosen = '+';
+{
+    operatorChosen = '+';
+    updateText();
+}
 else{
     operate();
+    updateText();
     numOpsTwo = '';
     operatorChosen = '';
     operatorChosen ='+';
 }
 updateText();
-    console.log(numOpsOne);
-    console.log(numOpsTwo);
-    console.log(operatorChosen);
+    console.log("numOne: "+numOpsOne);
+    console.log("numtwo: "+numOpsTwo);
+    console.log("operator :"+operatorChosen);
 });
 subBtn.addEventListener('click',function(){
     if(operatorChosen.length==0)
+   { 
     operatorChosen = '-';
+}
     else{
         operate();
+        updateText();
         numOpsTwo = '';
         operatorChosen = '';
         operatorChosen ='-';
@@ -228,9 +246,12 @@ subBtn.addEventListener('click',function(){
 });
 multiplyBtn.addEventListener('click',function(){
     if(operatorChosen.length==0)
-    operatorChosen = '*';
+    {
+        operatorChosen = '*';
+    }
     else{
         operate();
+        updateText();
         numOpsTwo = '';
         operatorChosen = '';
         operatorChosen ='*';
@@ -242,9 +263,12 @@ multiplyBtn.addEventListener('click',function(){
 });
 divBtn.addEventListener('click',function(){
     if(operatorChosen.length==0)
+   { 
     operatorChosen = '/';
+}
     else{
         operate();
+        updateText();
         numOpsTwo = '';
         operatorChosen = '';
         operatorChosen ='/';
