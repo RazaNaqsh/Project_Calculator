@@ -89,8 +89,6 @@ const input = document.querySelector('.inputText');
 const displayOps = document.querySelector('.displayValue');
 
 
-// let valueOps = numOpsOne+operatorChosen+numOpsTwo;
-
 //display text update
 function updateText(){
     if(operatorChosen.length == 0){
