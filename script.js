@@ -1,3 +1,12 @@
+
+//global variables
+let numOpsOne = '';
+let numOpsTwo ='';
+let operatorChosen = '';
+let num1;
+let num2;
+
+
 //functions for operators
 const add = function(...number) {
     let sum = 0;
@@ -24,8 +33,8 @@ const product = function(...number) {
      return divide;
   }
 const operate = function(){
-      let num1 = parseInt(numOpsOne);
-    let num2 = parseInt(numOpsTwo);
+     num1 = parseInt(numOpsOne);
+    num2 = parseInt(numOpsTwo);
     if(numOpsTwo == ''){
         equalBtn.disable = true;
     }
@@ -75,24 +84,18 @@ const clearBtn = document.getElementById("clear");
 const input = document.querySelector('.inputText');
 const displayOps = document.querySelector('.displayValue');
 
-//global variables
-let numOpsOne = '';
-let numOpsTwo ='';
-let operatorChosen = '';
-let valueOps = numOpsOne+operatorChosen+numOpsTwo;
+
+// let valueOps = numOpsOne+operatorChosen+numOpsTwo;
 
 //display text update
 function updateText(){
     if(operatorChosen.length == 0){
      input.textContent=numOpsOne;
-     valueOps.textContent = valueOps+numOpsOne;
     }
     
     else{
         input.textContent=numOpsTwo;
-        valueOps.textContent = valueOps+numOpsTwo;
     }
-    displayOps.textContent=valueOps;
     console.log("numOne: "+numOpsOne);
     console.log("numTwo: "+numOpsTwo);
     console.log("operatorChosen: "+ operatorChosen);
@@ -201,9 +204,12 @@ addBtn.addEventListener('click',function(){
     if(operatorChosen.length==0)
 operatorChosen = '+';
 else{
+    operate();
+    numOpsTwo = '';
     operatorChosen = '';
     operatorChosen ='+';
 }
+updateText();
     console.log(numOpsOne);
     console.log(numOpsTwo);
     console.log(operatorChosen);
@@ -212,18 +218,24 @@ subBtn.addEventListener('click',function(){
     if(operatorChosen.length==0)
     operatorChosen = '-';
     else{
+        operate();
+        numOpsTwo = '';
         operatorChosen = '';
         operatorChosen ='-';
     }
+    updateText();
         console.log(operatorChosen);
 });
 multiplyBtn.addEventListener('click',function(){
     if(operatorChosen.length==0)
     operatorChosen = '*';
     else{
+        operate();
+        numOpsTwo = '';
         operatorChosen = '';
         operatorChosen ='*';
     }
+    updateText();
         console.log(numOpsOne);
         console.log(numOpsTwo);
         console.log(operatorChosen);
@@ -232,9 +244,12 @@ divBtn.addEventListener('click',function(){
     if(operatorChosen.length==0)
     operatorChosen = '/';
     else{
+        operate();
+        numOpsTwo = '';
         operatorChosen = '';
         operatorChosen ='/';
     }
+    updateText();
         console.log(numOpsOne);
         console.log(numOpsTwo);
         console.log(operatorChosen);
