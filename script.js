@@ -57,13 +57,10 @@ const operate = function(){
     num2 = parseFloat(numOpsTwo);
     if(numOpsOne == "Error!" || numOpsTwo == "Error!")
     {
-        allbtn.disable = true;
-        clearBtn.disable=false;
-        displayOps.textContent = "Press clear"
-        
+        clearError(); 
     }
-    else{
-     if(numOpsTwo == ''){
+
+    else if(numOpsTwo == ''){
         equalBtn.disable = true;
     }
     else if(operatorChosen == '+'){
@@ -91,7 +88,7 @@ const operate = function(){
         displayOps.textContent=numOpsOne;
     }
 }
-}
+
 
 // selectors numbers
 const numOne = document.getElementById("one");
@@ -124,7 +121,10 @@ const allbtn = document.getElementsByTagName("button");
 
 //display text update
 function updateText(){
-    if(numOpsOne.toString().length > 12 || numOpsTwo.toString().length > 12){
+    if(numOpsOne.toString().length > 14 || numOpsTwo.toString().length > 14){
+        clearError();
+    }
+    else if( numOpsOne == "Error!" || numOpsTwo == "Error!"){
         clearError();
     }
     
@@ -145,7 +145,11 @@ function updateText(){
 
 //number btn events
 numOne.addEventListener('click', function(){
-   if(operatorChosen.length == 0)
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!")
+    {
+        clearError(); 
+    }
+   else if(operatorChosen.length == 0)
 numOpsOne += 1;
 else{
     numOpsTwo +=1;
@@ -154,7 +158,11 @@ updateText();
 });
 
 numTwo.addEventListener('click', function(){
-   if(operatorChosen.length == 0)
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!")
+    {
+        clearError(); 
+    }
+   else if(operatorChosen.length == 0)
 numOpsOne +=2;
 else{
     numOpsTwo +=2;
@@ -163,7 +171,11 @@ updateText();
 });
 
 numThree.addEventListener('click', function(){
-   if(operatorChosen.length == 0)
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!")
+    {
+        clearError(); 
+    }
+   else if(operatorChosen.length == 0)
     numOpsOne +=3;
     else{
         numOpsTwo +=3;
@@ -172,7 +184,11 @@ updateText();
 });
 
 numFour.addEventListener('click', function(){
-    if(operatorChosen.length == 0)
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!")
+    {
+        clearError(); 
+    }
+    else if(operatorChosen.length == 0)
     numOpsOne +=4;
     else{
         numOpsTwo +=4;
@@ -182,7 +198,11 @@ updateText();
 
 numFive.addEventListener('click', 
 function(){
-    if(operatorChosen.length == 0)
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!")
+    {
+        clearError(); 
+    }
+    else if(operatorChosen.length == 0)
     numOpsOne +=5;
     else{
         numOpsTwo +=5;
@@ -190,7 +210,11 @@ function(){
     updateText();
 });
 numSix.addEventListener('click', function(){
-   if(operatorChosen.length == 0)
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!")
+    {
+        clearError(); 
+    }
+   else if(operatorChosen.length == 0)
     numOpsOne +=6;
     else{
         numOpsTwo +=6;
@@ -198,7 +222,11 @@ numSix.addEventListener('click', function(){
     updateText();
 });
 numSeven.addEventListener('click', function(){
-   if(operatorChosen.length == 0)
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!")
+    {
+        clearError(); 
+    }
+   else if(operatorChosen.length == 0)
     numOpsOne +=7;
     else{
         numOpsTwo +=7;
@@ -206,7 +234,11 @@ numSeven.addEventListener('click', function(){
     updateText();
 });
 numEight.addEventListener('click', function(){
-    if(operatorChosen.length == 0)
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!")
+    {
+        clearError(); 
+    }
+    else if(operatorChosen.length == 0)
     numOpsOne +=8;
     else{
         numOpsTwo +=8;
@@ -214,7 +246,11 @@ numEight.addEventListener('click', function(){
     updateText();
 });
 numNine.addEventListener('click', function(){
-   if(operatorChosen.length == 0)
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!")
+    {
+        clearError(); 
+    }
+   else if(operatorChosen.length == 0)
     numOpsOne +=9;
     else{
         numOpsTwo +=9;
@@ -222,7 +258,11 @@ numNine.addEventListener('click', function(){
     updateText();
 });
 numZero.addEventListener('click', function(){
-    if(operatorChosen.length == 0)
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!")
+    {
+        clearError(); 
+    }
+    else if(operatorChosen.length == 0)
     numOpsOne +=0;
     else{
         numOpsTwo +=0;
@@ -230,7 +270,11 @@ numZero.addEventListener('click', function(){
     updateText();
 });
 dotBtn.addEventListener('click', function(){
-    if(operatorChosen.length == 0)
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!")
+    {
+        clearError(); 
+    }
+    else if(operatorChosen.length == 0)
     numOpsOne +=".";
     else{
         numOpsTwo +=".";
@@ -259,7 +303,13 @@ function clearError(){
 }
 
 //equal button
-equalBtn.addEventListener('click',operate);
+equalBtn.addEventListener('click',function(){
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!"){
+        clearError();
+    }
+    else
+    operate();
+});
 
 
 
@@ -269,7 +319,7 @@ addBtn.addEventListener('click',function(){
     if(numOpsOne == "Error!" || numOpsTwo == "Error!"){
         clearError();
     }
-    if(operatorChosen.length==0)
+    else if(operatorChosen.length==0)
 {
     operatorChosen = '+';
     updateText();
@@ -290,7 +340,7 @@ subBtn.addEventListener('click',function(){
     if(numOpsOne == "Error!" || numOpsTwo == "Error!"){
         clearError();
     }
-    if(operatorChosen.length==0)
+    else if(operatorChosen.length==0)
    { 
     operatorChosen = '-';
 }
@@ -308,7 +358,7 @@ multiplyBtn.addEventListener('click',function(){
     if(numOpsOne == "Error!" || numOpsTwo == "Error!"){
         clearError();
     }
-   if(operatorChosen.length==0)
+   else if(operatorChosen.length==0)
     {
         operatorChosen = '*';
     }
@@ -328,7 +378,7 @@ divBtn.addEventListener('click',function(){
     if(numOpsOne == "Error!" || numOpsTwo == "Error!"){
         clearError();
     }
-    if(operatorChosen.length==0)
+    else if(operatorChosen.length==0)
    { 
     operatorChosen = '/';
 }
