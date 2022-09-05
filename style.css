@@ -31,9 +31,9 @@ body{
 }
 #screen{
     display: flex;
+    flex-direction: column;
     background-color: #6d6875;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+    gap:1rem
     
 }
 
