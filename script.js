@@ -33,8 +33,8 @@ const product = function(...number) {
      return divide;
   }
 const operate = function(){
-     num1 = parseInt(numOpsOne);
-    num2 = parseInt(numOpsTwo);
+     num1 = parseFloat(numOpsOne);
+    num2 = parseFloat(numOpsTwo);
     if(numOpsTwo == ''){
         equalBtn.disable = true;
     }
@@ -83,6 +83,7 @@ const multiplyBtn =document.getElementById("multiply");
 const divBtn = document.getElementById("divide");
 const equalBtn = document.getElementById("equal");
 const clearBtn = document.getElementById("clear");
+const dotBtn = document.getElementById("dot")
 
 //selectors dom elements
 const input = document.querySelector('.inputText');
@@ -188,6 +189,14 @@ numZero.addEventListener('click', function(){
     numOpsOne +=0;
     else{
         numOpsTwo +=0;
+    }
+    updateText();
+});
+dotBtn.addEventListener('click', function(){
+    if(operatorChosen.length == 0)
+    numOpsOne +=".";
+    else{
+        numOpsTwo +=".";
     }
     updateText();
 });
