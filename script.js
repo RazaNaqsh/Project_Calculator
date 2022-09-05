@@ -12,30 +12,58 @@ const add = function(...number) {
     let sum = 0;
     for (let i of number)
       sum += i;
+    // return sum;
+    if(sum.toString().length>12){
+        return "Error!"
+    }
+    else
     return sum;
   }
 const product = function(...number) {
     let product = 1;
     for (let i of number)
     product*= i;
+    // return product;
+    if(product.toString().length>12){
+        return "Error!"
+    }
+    else
     return product;
   }
   const difference = function(...number) {
     let difference = number[0];
     for(let i=1;i<number.length;i++)
     difference -= number[i];
+    // return difference;
+    if(difference.toString().length>12){
+        return "Error!"
+    }
+    else
     return difference;
   }
   const division = function(...number) {
     let divide = number[0];
     for(let i=1;i<number.length;i++)
      divide /= number[i];
-     return divide;
+    //  return divide;
+    if(divide.toString().length>12){
+        return "Error!"
+    }
+    else
+    return divide;
   }
 const operate = function(){
      num1 = parseFloat(numOpsOne);
     num2 = parseFloat(numOpsTwo);
-    if(numOpsTwo == ''){
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!")
+    {
+        allbtn.disable = true;
+        clearBtn.disable=false;
+        displayOps.textContent = "Press clear"
+        
+    }
+    else{
+     if(numOpsTwo == ''){
         equalBtn.disable = true;
     }
     else if(operatorChosen == '+'){
@@ -63,6 +91,7 @@ const operate = function(){
         displayOps.textContent=numOpsOne;
     }
 }
+}
 
 // selectors numbers
 const numOne = document.getElementById("one");
@@ -89,12 +118,19 @@ const dotBtn = document.getElementById("dot")
 const input = document.querySelector('.inputText');
 const displayOps = document.querySelector('.displayValue');
 
+//allbtn
+const allbtn = document.getElementsByTagName("button");
+
 
 //display text update
 function updateText(){
-    if(operatorChosen.length == 0){
+    if(numOpsOne.toString().length > 12 || numOpsTwo.toString().length > 12){
+        clearError();
+    }
+    
+    else if(operatorChosen.length == 0){
      input.textContent=numOpsOne;
-
+    displayOps.textContent= numOpsOne;
     }
     
     else{
@@ -106,9 +142,10 @@ function updateText(){
     console.log("operatorChosen: "+ operatorChosen);
 }
 
+
 //number btn events
 numOne.addEventListener('click', function(){
-    if(operatorChosen.length == 0)
+   if(operatorChosen.length == 0)
 numOpsOne += 1;
 else{
     numOpsTwo +=1;
@@ -117,7 +154,7 @@ updateText();
 });
 
 numTwo.addEventListener('click', function(){
-    if(operatorChosen.length == 0)
+   if(operatorChosen.length == 0)
 numOpsOne +=2;
 else{
     numOpsTwo +=2;
@@ -126,7 +163,7 @@ updateText();
 });
 
 numThree.addEventListener('click', function(){
-    if(operatorChosen.length == 0)
+   if(operatorChosen.length == 0)
     numOpsOne +=3;
     else{
         numOpsTwo +=3;
@@ -153,7 +190,7 @@ function(){
     updateText();
 });
 numSix.addEventListener('click', function(){
-    if(operatorChosen.length == 0)
+   if(operatorChosen.length == 0)
     numOpsOne +=6;
     else{
         numOpsTwo +=6;
@@ -161,7 +198,7 @@ numSix.addEventListener('click', function(){
     updateText();
 });
 numSeven.addEventListener('click', function(){
-    if(operatorChosen.length == 0)
+   if(operatorChosen.length == 0)
     numOpsOne +=7;
     else{
         numOpsTwo +=7;
@@ -177,7 +214,7 @@ numEight.addEventListener('click', function(){
     updateText();
 });
 numNine.addEventListener('click', function(){
-    if(operatorChosen.length == 0)
+   if(operatorChosen.length == 0)
     numOpsOne +=9;
     else{
         numOpsTwo +=9;
@@ -202,14 +239,24 @@ dotBtn.addEventListener('click', function(){
 });
 
 //operation btn events
-clearBtn.addEventListener('click',function(){
+clearBtn.addEventListener('click',clear);
+
+
+//clear screen
+function clear(){
     numOpsOne='';
     numOpsTwo='';
     valueOps='';
     operatorChosen='';
     input.textContent=0;
     displayOps.textContent=0;
-});
+}
+function clearError(){
+    allbtn.disable = true;
+    clearBtn.disable=false;
+    displayOps.textContent = "Press clear"
+    input.textContent = "Error!"
+}
 
 //equal button
 equalBtn.addEventListener('click',operate);
@@ -219,6 +266,9 @@ equalBtn.addEventListener('click',operate);
 //basic operation btns
 
 addBtn.addEventListener('click',function(){
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!"){
+        clearError();
+    }
     if(operatorChosen.length==0)
 {
     operatorChosen = '+';
@@ -237,6 +287,9 @@ updateText();
     console.log("operator :"+operatorChosen);
 });
 subBtn.addEventListener('click',function(){
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!"){
+        clearError();
+    }
     if(operatorChosen.length==0)
    { 
     operatorChosen = '-';
@@ -252,7 +305,10 @@ subBtn.addEventListener('click',function(){
         console.log(operatorChosen);
 });
 multiplyBtn.addEventListener('click',function(){
-    if(operatorChosen.length==0)
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!"){
+        clearError();
+    }
+   if(operatorChosen.length==0)
     {
         operatorChosen = '*';
     }
@@ -269,6 +325,9 @@ multiplyBtn.addEventListener('click',function(){
         console.log(operatorChosen);
 });
 divBtn.addEventListener('click',function(){
+    if(numOpsOne == "Error!" || numOpsTwo == "Error!"){
+        clearError();
+    }
     if(operatorChosen.length==0)
    { 
     operatorChosen = '/';
